@@ -91,6 +91,7 @@
 
 
 <body>
+
     @auth
     <div id="topBar">
         <!-- <a href="{{ route('dashboard') }}">Dashboard</a> -->
@@ -142,7 +143,6 @@
                         </tr>
 
                         @endforeach
-                        @endauth
                 </table>
                 </tbody>
 
@@ -172,7 +172,7 @@
             })
         }
     </script>
-
+    @endauth
 </body>
 
 </html>

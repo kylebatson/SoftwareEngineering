@@ -14,12 +14,14 @@ use App\Http\Controllers\Catalog\CatalogController;
 |
 */
 
-Route::post('catalog', 'CatalogController@search');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('catalog', 'CatalogController@search');
 
-Route::resource('catalog', CatalogController::class);
+    Route::resource('catalog', CatalogController::class);
 
-Route::get('/index', [CatalogController::class, 'index']);
-//add route for about us and contact us
+    Route::get('/index', [CatalogController::class, 'index']);
+    //add route for about us and contact us    
+});
 
 Route::get('/', function () {
     return view('welcome');
