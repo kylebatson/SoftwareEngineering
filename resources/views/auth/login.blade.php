@@ -1,5 +1,10 @@
+
+<div class="panel-1">
 <x-guest-layout>
+
+
     <x-auth-card>
+
         <x-slot name="logo">
             <a href="/">
                 <img src="{{ URL('images/solar-house.png') }}" height="128px" width="128px" alt="">
@@ -8,7 +13,7 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-
+    
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -55,3 +60,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+</div>

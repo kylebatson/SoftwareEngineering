@@ -1,3 +1,185 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg {
+    height: 100vh;
+    width: 100%;
+}
+
+.body {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hero {
+    height: 80vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.50)), url("../images/alternative-g6a16f68af_1920.jpg");
+    text-align: center;
+    color: white;
+}
+
+.test {
+    background-image: url("../images/photovoltaic-system-gb85605ab2_1920.jpg");
+    height: 100vh;
+}
+
+.white {
+    color: white;
+}
+
+.blue {
+    color: deepskyblue;
+}
+
+.title {
+    padding-top: 20vh;
+    font-size: 10rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 3rem;
+    font-style: italic;
+}
+
+.lm-btn {
+    border: none;
+    background-color: orangered;
+    margin-top: 20px;
+    padding: 10px 100px;
+}
+
+.panels {
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+}
+
+.panel-1 {
+    background-image: url("../images/sunset-gb2f93ca92_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 0 0 25%;
+}
+
+.panel-2 {
+    background-image: url("../images/solar-energy-gf804e7fbb_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 0 0 25%;
+}
+
+.panel-3 {
+    background-image: url("../images/photovoltaic-system-g0800c739b_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 0 0 25%;
+}
+
+.panel-4 {
+    background-image: url("../images/pexels-tom-fisk-9893729.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 0 0 45%;
+}
+
+.panel-5 {
+    background-image: url("../images/pexels-pixabay-371900.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 0 0 45%;
+}
+
+.item-x {
+    flex: 0 0 20%;
+    height: 300px;
+}
+
+.hiw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hiw-cmpname {
+    color: orangered;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.hiw-title {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.hiw-items {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 75px;
+}
+
+.hiw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hiw-img {
+    height: 90px;
+    width: 90px;
+    border-radius: 100000000px;
+    background-image: url("../images/pexels-tom-fisk-9893729.jpg");
+}
+
+.hiw-header{
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 30px;
+}
+
+.hiw-txt{
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.bg-gray-100 {
+    --tw-bg-opacity: 1;
+    background-image: url("../images/back.jpeg");
+    object-fit: cover;
+  }
+
+  .button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  

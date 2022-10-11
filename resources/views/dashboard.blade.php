@@ -9,15 +9,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Welcome to The Solar Power Decision Support System!<br><br>
-
-                    Feel free to look around!
+                    You're logged in!
                 </div>
-            </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    Click here to go to the catalog
+                    
+                </div>
+
+
+                </div>
         </div>
     </div>
-</x-app-layout>
 
+</x-app-layout>
+{{View::make('footer')}}
 
 <html>
     <head>
@@ -25,6 +30,6 @@
     </head>
 
     <body>
-        <h1>Hey</h1>
+
     </body>
 </html>
