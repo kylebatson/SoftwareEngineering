@@ -14,10 +14,11 @@ use App\Http\Controllers\Catalog\CatalogController;
 |
 */
 
-Route::resource('catalog', CatalogController::class); 
+Route::post('catalog', 'CatalogController@search');
 
-Route::get('/index',[CatalogController::class, 'index']);
+Route::resource('catalog', CatalogController::class);
 
+Route::get('/index', [CatalogController::class, 'index']);
 //add route for about us and contact us
 
 Route::get('/', function () {
@@ -28,4 +29,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

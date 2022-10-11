@@ -18,7 +18,9 @@ class CatalogController extends Controller
         //Get a list of all the items in the catalog
         //and display them 
         $items = Catalog::all();
-        return view('index')->with('items',$items);
+        // $token = csrf_token();
+        // >with('token', $token)
+        return view('Catalog.index')->with('items', $items);
     }
 
     /**
@@ -48,8 +50,9 @@ class CatalogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        return response($request->all());
         //
     }
 
@@ -84,6 +87,13 @@ class CatalogController extends Controller
      */
     public function destroy($id)
     {
+        //
+    }
+
+
+    public function search(Request $request)
+    {
+        return response()->json(["DATA" => "success"]);
         //
     }
 }

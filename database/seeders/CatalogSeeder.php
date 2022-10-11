@@ -17,14 +17,24 @@ class CatalogSeeder extends Seeder
     {
         DB::table('catalog') -> insert([
             [
-                'name' => 'Solar Panel',
-                'description' => '300 Watt Panel',
-                'price' => '1000.00'
+                'name' => 'One Panel',
+                'category' => 'solar panel',
+                'price' => '300.00',
+                'supplier' => 'nameOne',
+                'description' => 'SOMETHING ELSE',
             ],[
-                'name' => 'Solar Panel Inverter',
-                'description' => '1800 VA',
-                'price' => '3000.00'
-            ]
+                'name' => 'Two Panel',
+                'category' => 'solar panel',
+                'price' => '450.00',
+                'supplier' => 'nameTwo',
+                'description' => 'SOMETHING SOMETHING TWO',
+            ],[
+                'name' => 'Three',
+                'category' => 'inverter',
+                'price' => '1000.00',
+                'supplier' => 'name_Three',
+                'description' => 'SOMETHING SOMETHING Three',
+            ],
         ]);
     }
 }

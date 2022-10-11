@@ -16,22 +16,22 @@
             <a href="{{ route('dashboard') }}" class="ml-4 text-lg">SPDSS</a>
         </div>
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block blue">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="ml-4 text-md underline">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="ml-4 text-md underline">Log in</a>
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block blue">
+            @auth
+            <a href="{{ url('/dashboard') }}" class="ml-4 text-md underline">Dashboard</a>
+            @else
+            <a href="{{ route('login') }}" class="ml-4 text-md underline">Log in</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-md underline">Register</a>             
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="ml-4 text-md underline">Register</a>
 
-                    @endif
+            @endif
 
-                    <a href="{{ route('register') }}" class="ml-4 text-md underline">About Us</a>
-                    <a href="{{ route('register') }}" class="ml-4 text-md underline">Contact Us</a>
+            <a href="{{ route('register') }}" class="ml-4 text-md underline">About Us</a>
+            <a href="{{ route('register') }}" class="ml-4 text-md underline">Contact Us</a>
 
-                @endauth
-            </div>
+            @endauth
+        </div>
         @endif
 
 
@@ -60,33 +60,29 @@
                     <div class="hiw-items">
                         <div class="item-x">
                             <div class="hiw-container">
-                                <div class="hiw-img"> <img src="{{ URL::asset('/images/solar-image.jpg') }}"
-                                        class="hiw-img" alt=""> </div>
+                                <div class="hiw-img"> <img src="{{ URL::asset('/images/solar-image.jpg') }}" class="hiw-img" alt=""> </div>
                                 <div class="hiw-header">Register For system</div>
                                 <div class="hiw-txt">Register to the system for access to all things solar panel.</div>
                             </div>
                         </div>
                         <div class="item-x">
                             <div class="hiw-container">
-                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}"
-                                        class="hiw-img" alt=""> </div>
+                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}" class="hiw-img" alt=""> </div>
                                 <div class="hiw-header">Go to Dashboard</div>
-                                <div class="hiw-txt">Go to the dashboard to see our Catalog, Calculator or to schedule 
+                                <div class="hiw-txt">Go to the dashboard to see our Catalog, Calculator or to schedule
                                     a visit. </div>
                             </div>
                         </div>
                         <div class="item-x">
                             <div class="hiw-container">
-                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}"
-                                        class="hiw-img" alt=""> </div>
+                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}" class="hiw-img" alt=""> </div>
                                 <div class="hiw-header">Select Items from Catalog</div>
                                 <div class="hiw-txt">Peruse our catalog to make the best decision for your home.</div>
                             </div>
                         </div>
                         <div class="item-x">
                             <div class="hiw-container">
-                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}"
-                                        class="hiw-img" alt=""> </div>
+                                <div class="hiw-img"> <img src="{{ URL::asset('/images/pexels-tom-fisk-9893729.jpg') }}" class="hiw-img" alt=""> </div>
                                 <div class="hiw-header">Save your choices</div>
                                 <div class="hiw-txt">No rush.. Save your choices for later review.</div>
                             </div>
