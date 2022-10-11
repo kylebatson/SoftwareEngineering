@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('catalog', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->string('Category');
             $table->decimal('price', $precision = 8, $scale = 2);
-            $table->timestamps();
+            $table->string('supplier');
+            $table->string('description');
         });
     }
 
