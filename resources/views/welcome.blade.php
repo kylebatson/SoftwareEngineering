@@ -39,17 +39,17 @@
             <div class="row">
                 <div class="hero">
                     <div>
-                        <h1 class="title">Spdss</h1>
+                        <h1 class="title">SPDSS</h1>
                     </div>
-                    <div class="subtitle">Slogan for Spdss</div>
+                    <div class="subtitle">Clean Energy for a Better Tommorow</div>
                     <div><button class="lm-btn">Learn More</button></div>
                 </div>
             </div>
             <div class="row">
                 <div class="panels">
-                    <div class="panel-1 panel">Utility</div>
-                    <div class="panel-2 panel">Commercial</div>
-                    <div class="panel-3 panel">Residential</div>
+                    <div class="panel-1 panel"><a href = "#">Utility</a></div>
+                    <div class="panel-2 panel"><a href = "#">Commercial</a></div>
+                    <div class="panel-3 panel"><a href = "#">Residential</a></div>
                 </div>
             </div>
 
