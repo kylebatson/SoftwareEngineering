@@ -27,8 +27,8 @@
 
             @endif
 
-            <a href="{{ route('register') }}" class="ml-4 text-md underline">About Us</a>
-            <a href="{{ route('register') }}" class="ml-4 text-md underline">Contact Us</a>
+            <a href="#" class="ml-4 text-md underline">About Us</a>
+            <a href="#" class="ml-4 text-md underline">Contact Us</a>
 
             @endauth
         </div>
