@@ -168,5 +168,9 @@
     object-fit: cover;
   }
 
+  a:hover{
+    color: rgb(0, 83, 238);
+  }
+
 
   
