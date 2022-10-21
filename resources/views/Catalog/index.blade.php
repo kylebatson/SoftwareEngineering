@@ -117,16 +117,14 @@
                         <col style="width: 10rem">
                         <col style="width:7rem">
                         <col style="width:7rem">
-                        <col style="width:7rem">
-                        <col style="width:25rem">
+                        <col style="width:10rem">
                     </colgroup>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Category</th>
                             <th>Price</th>
-                            <th>Supplier</th>
-                            <th>Description</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,14 +135,28 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->Category }}</td>
                             <td>{{ $item->price }}</td>
-                            <td>{{ $item->supplier }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>
+                                {!! Form::open(['method' =>'get', 'route' => ['catalog.show', $item->id]]) !!}
+                                    {!!Form::submit('Details') !!}
+                                {!! Form::close() !!}
+                                
+                                {!! Form::open(['method' => 'get', 'route'=> ['catalog.edit', $item->id]]) !!}
+                                    {!!Form::submit('Edit') !!}
+                                {!!Form::close() !!} 
+                                
+                                {!! Form::open(['method' => 'delete', 'route'=> ['catalog.destroy', $item->id]]) !!}
+                                        {!!Form::submit('Delete') !!}
+                                {!! Form::close() !!}
+                            </td>
                         </tr>
 
                         @endforeach
                         @endauth
                 </table>
                 </tbody>
+                {!! Form::open(['method' => 'get', 'route'=> ['catalog.create']]) !!}
+                    {!!Form::submit('Create') !!}
+                {!!Form::close() !!} 
 
             </div>
 
