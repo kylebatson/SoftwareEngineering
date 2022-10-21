@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Catalog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Http\Requests\CatalogRequest;
 
 class CatalogController extends Controller
 {
@@ -31,6 +32,8 @@ class CatalogController extends Controller
     public function create()
     {
         //
+        $catalog = new Catalog;
+        return view('catalog/create');
     }
 
     /**
@@ -39,9 +42,17 @@ class CatalogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatalogRequest $request)
     {
         //
+        Catalog::create([
+            'name' => $request->name,
+            'Category' => $request->Category,
+            'description' => $request->description,
+            'price' =>  $request->price,
+            'supplier' => $request->supplier,
+        ]);
+        return redirect(url('catalog'));
     }
 
     /**
@@ -50,10 +61,12 @@ class CatalogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        return response($request->all());
+        //return response($request->all());
         //
+        $item = Catalog::findOrFail($id);
+        return view('catalog/show')->with('item', $item);
     }
 
     /**
@@ -65,6 +78,8 @@ class CatalogController extends Controller
     public function edit($id)
     {
         //
+        $item = Catalog::findOrFail($id);
+        return view('catalog/edit')->with('item', $item);
     }
 
     /**
@@ -74,9 +89,17 @@ class CatalogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CatalogRequest $request, $id)
     {
         //
+        $item = Catalog::findOrFail($id);
+        $item -> name = $request -> name;
+        $item -> price = $request -> price;
+        $item -> description = $request -> description;
+        $item -> Category = $request -> Category;
+        $item -> supplier = $request -> supplier;
+        $item->save();
+        return redirect(url('catalog'));
     }
 
     /**
@@ -88,6 +111,9 @@ class CatalogController extends Controller
     public function destroy($id)
     {
         //
+        $item = Catalog::findOrFail($id);
+        $item->delete();
+        return redirect()->back();
     }
 
 
