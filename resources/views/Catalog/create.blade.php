@@ -61,10 +61,10 @@
     }
 
     #topBar {
-        height: 6vh;
+        height: 7vh;
         width: 100vw;
         background-color: #4f4e5c;
-
+        position: fixed;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
@@ -100,55 +100,60 @@
         <a href="{{ route('dashboard') }}" class="ml-4 text-lg">Dashboard</a>
         <a href="{{ url('/') }}" class="ml-4 text-lg">Home</a>
     </div>
-    <div id="Container">
-    <div class="form-1">
-    @auth
-       {!! Form::open(['method' => 'post', 'route' => 'catalog.store']) !!}
+    <div class="flex justify-center items-center h-screen w-full">
+        <div class="rounded-lg flex bg-blue-700 bg-opacity-25 border border-white shadow overflow-hidden p-4 w-2/5">
+        @auth
+        {!! Form::open(['method' => 'post', 'route' => 'catalog.store', 'class' => 'grid grid-cols-2 w-full gap-2']) !!}
 
-       <p>
-           {!! Form::label('name', 'Name:') !!}
-           {!! Form::text('name','',['placeholder' => 'Enter the name of the catalog item']) !!}
-        </p>
-        @error('name')
-            <div>{{ $message }}</div>
-        @enderror
-        <p>
-            {!! Form::label('Category', 'Category:') !!}
-            {!! Form::text('Category','',['placeholder' => 'Category']) !!}
-        </p>
-            @error('Category')
-                <div>{{ $message }}</div>
+        <div class="flex flex-col gap-2">
+            {!! Form::label('name', 'Name:') !!}
+            {!! Form::text('name','',['placeholder' => 'Enter the name of the catalog item', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
+            
+            @error('name')
+                <div class="text-red-50 font-bold">{{ $message }}</div>
             @enderror
-        <p>
-           {!! Form::label('price', 'Price:') !!}
-           {!! Form::text('price','',['placeholder' => 'Enter the price of the catalog item']) !!}
-        </p>
-        @error('price')
-            <div>{{ $message }}</div>
-        @enderror
-        <p>
-                {!! Form::label('supplier', 'Supplier:') !!}
-                {!! Form::text('supplier','',['placeholder' => 'Supplier']) !!}
-                </p>
-                @error('price')
-                    <div>{{ $message }}</div>
+            </div>
+            <div class="flex flex-col gap-2">
+                {!! Form::label('Category', 'Category:') !!}
+                {!! Form::text('Category','',['placeholder' => 'Category', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
+            
+                @error('Category')
+                    <div class="text-red-50 font-bold">{{ $message }}</div>
                 @enderror
-        <p>
-           {!! Form::label('description', 'Description:') !!}
-           {!! Form::text('description','',['placeholder' => 'Enter the description of the catalog item']) !!}
-        </p>
-        @error('description')
-            <div>{{ $message }}</div>
-        @enderror
+                </div>
+            <div class="flex flex-col gap-2">
+            {!! Form::label('price', 'Price:') !!}
+            {!! Form::text('price','',['placeholder' => 'Enter the price of the catalog item', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
+            @error('price')
+                <div class="text-red-50 font-bold">{{ $message }}</div>
+            @enderror
+            </div>
+            <div class="flex flex-col gap-2">
+                    {!! Form::label('supplier', 'Supplier:') !!}
+                    {!! Form::text('supplier','',['placeholder' => 'Supplier', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
+                    @error('price')
+                        <div class="text-red-50 font-bold">{{ $message }}</div>
+                    @enderror
+                    </div>
+            <div class="flex flex-col gap-2 col-span-2">
+            {!! Form::label('description', 'Description:') !!}
+            {!! Form::textarea('description','',['placeholder' => 'Enter the description of the catalog item', 'class' => 'w-full rounded border-none bg-gray-300 text-black', 'rows' => 5]) !!}
+            @error('description')
+                <div class="text-red-50 font-bold">{{ $message }}</div>
+            @enderror
+            </div>
 
+            <div class="col-span-2">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="/catalog" class="bg-red-400 hover:bg-red-500 text-white py-2 px-4 rounded text-center hover:text-white">Back</a>
 
-        <p>
-           {!! Form::submit('Add Item') !!}
-        </p>
-
-       {!! Form::close() !!}
-    @endauth
-</div>
+                    {!! Form::submit('Add Item', ['class' => 'bg-green-400 text-white py-2 px-4 rounded hover:bg-green-500 cursor-pointer']) !!}
+                </div>
+            </div>
+            
+        {!! Form::close() !!}
+        @endauth
+    </div>
 </div>
 @endauth
 </body>

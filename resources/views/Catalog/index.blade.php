@@ -61,10 +61,10 @@
     }
 
     #topBar {
-        height: 6vh;
+        height: 7vh;
         width: 100vw;
         background-color: #4f4e5c;
-
+        position: fixed;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
@@ -76,17 +76,17 @@
 
     #filter {
         box-sizing: border-box;
-        background-color: #696876e8;
-        width: fit-content;
+        /* background-color: #696876e8; */
+        /* width: fit-content; */
         height: 3rem;
 
         padding: .5rem;
     }
 
-    #filter>button {
+    /* #filter>button {
         width: 100%;
         height: 100%;
-    }
+    } */
 </style>
 
 
@@ -107,9 +107,12 @@
 
         </div>
 
-        <div id="tableCont">
-            <div id="filter">
-                <button onclick="query()">Filter By.</button>
+        <div id="tableCont" class="w-full">
+            <div id="filter" class="flex justify-between w-full">
+                <button class="bg-[#696876e8] py-4 px-8 flex items-center justify-center rounded" onclick="query()">Filter By.</button>
+                {!! Form::open(['method' => 'get', 'route'=> ['catalog.create'], 'class' => 'bg-[#443abf9a] py-4 px-8  flex items-center justify-center rounded']) !!}
+                    {!!Form::submit('Create') !!}
+                {!!Form::close() !!} 
             </div>
             <div id="table">
                 <table>
@@ -154,9 +157,7 @@
                         @endauth
                 </table>
                 </tbody>
-                {!! Form::open(['method' => 'get', 'route'=> ['catalog.create']]) !!}
-                    {!!Form::submit('Create') !!}
-                {!!Form::close() !!} 
+                
 
             </div>
 
