@@ -16,6 +16,9 @@ use App\Http\Controllers\Catalog\CatalogController;
 
 Route::post('catalog', 'CatalogController@search');
 
+Route::get('catalog/filter', 'App\Http\Controllers\Catalog\CatalogController@filter')->name('catalog.filter');
+Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@search')->name('catalog.search');
+
 Route::resource('catalog', CatalogController::class);
 
 Route::get('/index', [CatalogController::class, 'index']);

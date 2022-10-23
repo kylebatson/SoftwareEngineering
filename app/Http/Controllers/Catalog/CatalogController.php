@@ -117,9 +117,23 @@ class CatalogController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
-        return response()->json(["DATA" => "success"]);
-        //
+    public function filter(Request $request){
+
+        $items=Catalog::all()
+        ->where('price', '>=', $request->minPrice)
+        ->where('price', '<=', $request->maxPrice)
+        ->sortBy('price');
+
+        return view('catalog/filter')->with('items', $items);
+    }
+
+    public function search(Request $request){
+
+        $items = Catalog::query()
+            ->where('name', 'LIKE', "%{$request->name}%")
+            ->get();
+    
+        // Return the search view with the results compacted
+        return view('catalog/search')->with('items', $items);
     }
 }
