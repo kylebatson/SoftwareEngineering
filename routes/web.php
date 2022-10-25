@@ -21,6 +21,8 @@ Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@sea
 
 Route::resource('catalog', CatalogController::class);
 
+Route::view('/calculator', 'calculator');
+
 Route::get('/index', [CatalogController::class, 'index']);
 //add route for about us and contact us
 
