@@ -21,7 +21,7 @@
                     {!! Form::close() !!}
         
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('calculator')">
+                    <x-nav-link :href="url('calculator')" :active="request()->routeIs('calculator')">
                         {{ __('Calculator') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('schedule_visit')">
