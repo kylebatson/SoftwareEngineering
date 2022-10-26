@@ -133,7 +133,7 @@
                     document.getElementById("thirdNumber").value = area;
                     const amnt = area/10;
                     document.getElementById("fourthNumber").value = Math.floor(amnt);
-                    const total = amnt * 3500;
+                    const total = amnt * 300;
                     document.getElementById("final").value = total.toFixed(2);
 
                 }
