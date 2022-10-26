@@ -45,7 +45,7 @@
   border-radius:10px;
   border:3px solid;
   width:100%;
-  height:410px;
+  height:auto;
   box-sizing:border-box; 
   text-align:center;
   position:static;
@@ -90,15 +90,20 @@ margin: 0;
   
 </div>
     <div class="containerC">
-      <h1> Calculator</h1>
+      <h1 style="color:white; font-size:30px"><b>Calculator</b></h1>
+      <p style="color:white;"> <b>The calculator below will allow you to get an estimate for the total cost of the Solar Panel.
+    You will be able to enter the desired height of the solar panel along with the length so you could get an idea of the area to be covered.
+    The total cost of the Solar Panel System depends on the Area multiplied by the Units and the price of the Solar Panel System.
+  </p></b>
   <form>
-    Height of Solar Panel: <input type="number" required id="firstNumber" min="1"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Length of Solar Panel : <input type="number" required id="secondNumber" min="1"/><br><br>
-    Price : <input type="number" required id="thirdNumber" min="1"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Units: <input type="number" required id="fourthNumber" min="1"/><br><br>
+    
+    Height of Solar Panel: <input type="number" required id="firstNumber" min="1" placeholder="Height of panel(SQ FT)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Length of Solar Panel : <input type="number" required id="secondNumber" min="1" placeholder="Height of panel(SQ FT)"/><br><br>
+    Price : <input type="number" required id="thirdNumber" min="1" placeholder="Price of panel"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Units: <input type="number" required id="fourthNumber" min="1" placeholder="Number of panel"/><br><br>
     <span input type="label" id = "result"> Area to be covered: &nbsp;&nbsp;&nbsp;</span><input type="textbox" id="Total" disabled><br>
     <span input type="label" id = "fTotal">Total For Solar Panel: </span><input type="textbox" id="final" disabled><br><br>
-    <input type="button" onClick="multiplyBy()" Value="Calculate" /><br>
+    <input type="button" onClick="multiplyBy()" Value="Calculate" style="background-color: white;"/><br>
   </form>
   
   <p> 
