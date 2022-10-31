@@ -5,9 +5,19 @@ namespace App\Http\Controllers\Catalog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Http\Requests\catalog\CatalogRequest;
 
 class CatalogController extends Controller
 {
+
+    public function __construct()
+    {
+    
+        $this->middleware('catalog.access:' . config("const.defaultUser"))->only(['index', 'show']);
+        $this->middleware('catalog.access:' . config("const.admin"))->only(['create', 'store', 'edit', 'update', 'destroy']);
+    
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +40,8 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
+        $catalog = new Catalog;
+        return view("Catalog.create")->with('catalog', $catalog);
     }
 
     /**
@@ -41,7 +52,17 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Catalog::create([
+            'name' => $request->name,
+            'category' => $request->category,
+            'price' => $request->price,
+            'supplier' => $request->supplier,
+            'description' => $request->description,
+        ]);
+        // protected $fillable = ["name", "category", "price", "supplier", "description"];
+
+        return redirect(url('catalog'));
     }
 
     /**
@@ -50,9 +71,10 @@ class CatalogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        return response($request->all());
+        $item = Catalog::findOrFail($id);
+        return view('Catalog.show')->with('item', $item);
         //
     }
 
@@ -87,13 +109,24 @@ class CatalogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Catalog::findOrFail($id);
+        $item->delete();
+        return redirect()->back();
     }
 
 
     public function search(Request $request)
     {
+        $request->validate([
+            'minPrice' => "required|numeric",
+            'maxPrice' => "required|numeric",
+        ]);
+
         return response()->json(["DATA" => "success"]);
         //
     }
 }
+
+// php artisan route:list
+// catalog.destroy
+// middleware - request->middleware->server, filter the requests based on criteria.
