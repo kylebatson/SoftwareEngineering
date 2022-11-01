@@ -7,7 +7,7 @@
 
         <x-slot name="logo">
             <a href="/">
-                <img src="{{ URL('images/solar-house.png') }}" height="128px" width="128px" alt="">
+                <img src="{{ URL('images/solar-house.png') }}" alt="">
             </a>
         </x-slot>
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Catalog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Catalog;
-use App\Http\Requests\catalog\CatalogRequest;
+use App\Http\Requests\CatalogRequest;
 
 class CatalogController extends Controller
 {
@@ -41,7 +41,7 @@ class CatalogController extends Controller
     public function create()
     {
         $catalog = new Catalog;
-        return view("Catalog.create")->with('catalog', $catalog);
+        return view('catalog/create');
     }
 
     /**
@@ -50,18 +50,15 @@ class CatalogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatalogRequest $request)
     {
-
         Catalog::create([
             'name' => $request->name,
-            'category' => $request->category,
-            'price' => $request->price,
-            'supplier' => $request->supplier,
+            'Category' => $request->Category,
             'description' => $request->description,
+            'price' =>  $request->price,
+            'supplier' => $request->supplier,
         ]);
-        // protected $fillable = ["name", "category", "price", "supplier", "description"];
-
         return redirect(url('catalog'));
     }
 
@@ -73,9 +70,9 @@ class CatalogController extends Controller
      */
     public function show($id)
     {
-        $item = Catalog::findOrFail($id);
-        return view('Catalog.show')->with('item', $item);
         //
+        $item = Catalog::findOrFail($id);
+        return view('catalog/show')->with('item', $item);
     }
 
     /**
@@ -87,6 +84,8 @@ class CatalogController extends Controller
     public function edit($id)
     {
         //
+        $item = Catalog::findOrFail($id);
+        return view('catalog/edit')->with('item', $item);
     }
 
     /**
@@ -96,9 +95,17 @@ class CatalogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CatalogRequest $request, $id)
     {
         //
+        $item = Catalog::findOrFail($id);
+        $item -> name = $request -> name;
+        $item -> price = $request -> price;
+        $item -> description = $request -> description;
+        $item -> Category = $request -> Category;
+        $item -> supplier = $request -> supplier;
+        $item->save();
+        return redirect(url('catalog'));
     }
 
     /**
@@ -115,15 +122,25 @@ class CatalogController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
-        $request->validate([
-            'minPrice' => "required|numeric",
-            'maxPrice' => "required|numeric",
-        ]);
 
-        return response()->json(["DATA" => "success"]);
-        //
+    public function filter(Request $request){
+
+        $items=Catalog::all()
+        ->where('price', '>=', $request->minPrice)
+        ->where('price', '<=', $request->maxPrice)
+        ->sortBy('price');
+
+        return view('catalog/filter')->with('items', $items);
+    }
+
+    public function search(Request $request){
+
+        $items = Catalog::query()
+            ->where('name', 'LIKE', "%{$request->name}%")
+            ->get();
+    
+        // Return the search view with the results compacted
+        return view('catalog/search')->with('items', $items);
     }
 }
 

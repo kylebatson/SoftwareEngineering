@@ -13,5 +13,5 @@ class Catalog extends Model
     protected $table = 'catalog';
     public $timestamps = false;
 
-    protected $fillable = ["name", "category", "price", "supplier", "description"];
+    protected $fillable = ['name', 'Category','description', 'price', 'supplier'];
 }

@@ -1,14 +1,13 @@
 <footer>
-  <ul class="text-center">
-    <li class="mt-3">
-      <p>Copyright &copy; SPDSS</p>
-    </li>
-    <li class="mt-2">
-      <a href="/privacy-policy/">Privacy Policy</a>
-    </li>
-    <li class="mt-2">
-      <a href="/disclaimer/">Terms & Conditions</a>
-    </li>
- </ul>
-</footer>
 
+  <div style="float:left;width:33%; text-align:center;padding:12px;">
+      <a href="#">Privacy Policy<a>
+    </div>
+    <div style="float:left;width:33%;text-align:center;padding:12px;">
+     <p class="text-center">Copyright &copy; SPDSS</p>
+    </div>
+    <div style="float:left;width:33%;text-align:center;padding:12px;">
+    <a href="#">Terms & Conditions<a>
+  </div>
+
+</footer>

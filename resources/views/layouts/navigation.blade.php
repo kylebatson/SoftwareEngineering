@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                    <img src="{{ URL('images/solar-house.png') }}" height="64px" width="64px" alt="">
+                    <img src="{{ URL('images/solar-house1.png') }}" height="64px" width="64px" alt="">
                     </a>
                 </div>
 
@@ -15,10 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('index')">
-                        {{ __('Catalog') }}
+                    <x-nav-link :href="route('catalog.index')" :active="request()->routeIs('index')">
+                    {!! Form::open(['method' =>'get', 'route' => ['catalog.index']]) !!}
+                        {!!Form::submit('Catalog') !!}
+                    {!! Form::close() !!}
+        
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('calculator')">
+                    <x-nav-link :href="url('calculator')" :active="request()->routeIs('calculator')">
                         {{ __('Calculator') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('schedule_visit')">
