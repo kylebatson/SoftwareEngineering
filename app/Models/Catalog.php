@@ -11,6 +11,7 @@ class Catalog extends Model
     use HasFactory;
 
     protected $table = 'catalog';
+    public $timestamps = false;
 
     protected $fillable = ['name', 'Category','description', 'price', 'supplier'];
 }

@@ -104,6 +104,7 @@
 
 
 <body>
+
     @auth
     <div id="topBar">
         <!-- <a href="{{ route('dashboard') }}">Dashboard</a> -->
@@ -195,11 +196,11 @@
                         </tr>
 
                         @endforeach
-                        @endauth
                 </table>
                 </tbody>
             </div>
         </div>
+
     </div>
     <script type='text/javascript'>
         function query_() {
@@ -219,7 +220,7 @@
             })
         }
     </script>
-
+    @endauth
 </body>
 
 </html>

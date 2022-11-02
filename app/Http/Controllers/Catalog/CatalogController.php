@@ -9,6 +9,15 @@ use App\Http\Requests\CatalogRequest;
 
 class CatalogController extends Controller
 {
+
+    public function __construct()
+    {
+    
+        $this->middleware('catalog.access:' . config("const.defaultUser"))->only(['index', 'show']);
+        $this->middleware('catalog.access:' . config("const.admin"))->only(['create', 'store', 'edit', 'update', 'destroy']);
+    
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +40,6 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
         $catalog = new Catalog;
         return view('catalog/create');
     }
@@ -44,7 +52,6 @@ class CatalogController extends Controller
      */
     public function store(CatalogRequest $request)
     {
-        //
         Catalog::create([
             'name' => $request->name,
             'Category' => $request->Category,
@@ -63,7 +70,6 @@ class CatalogController extends Controller
      */
     public function show($id)
     {
-        //return response($request->all());
         //
         $item = Catalog::findOrFail($id);
         return view('catalog/show')->with('item', $item);
@@ -110,11 +116,11 @@ class CatalogController extends Controller
      */
     public function destroy($id)
     {
-        //
         $item = Catalog::findOrFail($id);
         $item->delete();
         return redirect()->back();
     }
+
 
 
     public function filter(Request $request){
@@ -137,3 +143,7 @@ class CatalogController extends Controller
         return view('catalog/search')->with('items', $items);
     }
 }
+
+// php artisan route:list
+// catalog.destroy
+// middleware - request->middleware->server, filter the requests based on criteria.

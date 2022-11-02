@@ -42,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Accepts a role number and returns if the users role number is greater than or equal to that one.
+     */
+    public function hasRole($role)
+    {
+        return $this->role >= $role;
+    }
 }
