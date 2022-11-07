@@ -16,7 +16,11 @@ use App\Http\Controllers\Catalog\CatalogController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::post('catalog', 'CatalogController@search');
+});
 
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::get('catalog/filter', 'App\Http\Controllers\Catalog\CatalogController@filter')->name('catalog.filter');
 Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@search')->name('catalog.search');
