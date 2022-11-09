@@ -38,10 +38,11 @@ class CatalogSeeder extends Seeder
             ],
         ]);
         DB::table('users')->insert([
-            'name' => "admin",
+            'firstname' => "admin",
+            'lastname' => "admin",
             'email' => "test@testmail.com",
             'password' => Hash::make('337662'),
-            'role' => config('const.admin'),
+            'role' => 'const.admin',
         ]);
     }
 }

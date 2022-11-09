@@ -144,9 +144,13 @@
 
                         {!!Form::submit('Search', ['class' => 'bg-[#443abf9a] py-2 px-6 justify-center rounded w-1/3'])!!} 
                         {!!Form::close()!!}
+                        @if (Auth::user()->role == 'const.admin')
+
                             {!! Form::open(['method' => 'get', 'route'=> ['catalog.create'], 'class' => 'bg-[#443abf9a] py-2 px-6 flex items-center justify-center rounded w-1/3']) !!}
                                 {!!Form::submit('Add Item') !!}
                             {!!Form::close() !!} 
+
+                        @endif
                     </div>
                 </div>
             </div>
@@ -183,7 +187,9 @@
                                     {!!Form::submit('Details') !!}
                                 {!! Form::close() !!}
                             </td>
+                            @if (Auth::user()->role == 'const.admin')
                             <td>
+                                
                                 {!! Form::open(['method' => 'get', 'route'=> ['catalog.edit', $item->id]]) !!}
                                     {!!Form::submit('Edit') !!}
                                 {!!Form::close() !!} 
@@ -193,6 +199,7 @@
                                         {!!Form::submit('Delete') !!}
                                 {!! Form::close() !!}
                             </td>
+                            @endif
                         </tr>
 
                         @endforeach

@@ -16,11 +16,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role');
+            $table->string('role');
         });
         $output = new ConsoleOutput();
 
-        $temp = "UPDATE users SET role=" . config("const.userDefault");
+        $temp = "UPDATE users SET role= 'const.userDefault'";
         $output->writeln("\n\n" . $temp . "\n\n");
         DB::statement($temp);
     }

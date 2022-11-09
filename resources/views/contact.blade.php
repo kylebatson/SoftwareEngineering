@@ -139,9 +139,12 @@
             
             
         
-            {!! Form::open(['method' => 'post', 'route' => 'catalog.store', 'class' => 'grid grid-cols-2 w-full gap-2']) !!}
+            {!! Form::open(['method' => 'post', 'route' => 'queries.store', 'class' => 'grid grid-cols-2 w-full gap-2']) !!}
             <div class="flex flex-col col-span-2 gap-2 "><center><h2 style="font-size:25px"> Contact Form</h2></center></div>
             <div class="flex flex-col col-span-2 gap-2 "><center><p> Fill out the form below and our associates will get ack to you as soon as possible.</p></div>
+            @if(Session::has('success'))
+            <div class="flex flex-col col-span-2 gap-2 "><center><p class="lead">{{Session::get('success')}}</p></center></div>
+            @endif
             <div class="flex flex-col ">
                 {!! Form::label('name', 'Name:') !!}
                 {!! Form::text('name','',['placeholder' => 'Enter your name here', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
@@ -165,7 +168,7 @@
                 </div>
             </div> 
             <div class=" flex flex-col  col-span-2">
-                <p class ="lead " >Call us at: 1(246)344-8888  |  Find us on Facebook: SPDSS</p>
+                <p class ="lead " >Call us at: 1(246)344-8888  |  Or email us as decisions@SPDSS.com</p>
             </div>  
             {!! Form::close() !!}
         </div> 
