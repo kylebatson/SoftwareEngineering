@@ -125,6 +125,7 @@
                             <th>Price</th>
                             <th>Supplier</th>
                             <th>Description</th>
+							<th> Type </th>
                         </tr>
                     </thead>
                         <tr>
@@ -133,6 +134,7 @@
                             <td>{{ $item->price }}</td>
                             <td>{{ $item->supplier }}</td>
                             <td>{{ $item->description }}</td>
+							<td>{{ $item->type}}</td>
                         </tr>
     @endauth
                 </table>
