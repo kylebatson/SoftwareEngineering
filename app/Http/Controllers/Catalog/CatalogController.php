@@ -58,6 +58,7 @@ class CatalogController extends Controller
             'description' => $request->description,
             'price' =>  $request->price,
             'supplier' => $request->supplier,
+			'type' => $request->type,
         ]);
         return redirect(url('catalog'));
     }
@@ -104,6 +105,7 @@ class CatalogController extends Controller
         $item -> description = $request -> description;
         $item -> Category = $request -> Category;
         $item -> supplier = $request -> supplier;
+		$item -> type = $request -> type;
         $item->save();
         return redirect(url('catalog'));
     }
@@ -129,14 +131,14 @@ class CatalogController extends Controller
         ->where('price', '>=', $request->minPrice)
         ->where('price', '<=', $request->maxPrice)
         ->sortBy('price');
-
         return view('catalog/filter')->with('items', $items);
     }
-
+	
     public function search(Request $request){
 
         $items = Catalog::query()
             ->where('name', 'LIKE', "%{$request->name}%")
+			 ->where('type', 'LIKE', "%{$request->type}%")
             ->get();
     
         // Return the search view with the results compacted

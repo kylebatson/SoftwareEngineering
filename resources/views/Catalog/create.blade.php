@@ -142,7 +142,15 @@
                 <div class="text-red-50 font-bold">{{ $message }}</div>
             @enderror
             </div>
-
+			
+			<div class="flex flex-col gap-2">
+			{!! Form::label('type', 'Type:') !!}
+			{!! Form::text('type','',['placeholder' => 'Type', 'class' => 'w-full rounded border-none bg-gray-300 text-black']) !!}
+			 @error('type')
+			 <div class="text-red-50 font-bold">{{ $message }}</div>
+			 @enderror
+            </div>
+			 
             <div class="col-span-2">
                 <div class="grid grid-cols-2 gap-2">
                     <a href="/catalog" class="bg-red-400 hover:bg-red-500 text-white py-2 px-4 rounded text-center hover:text-white">Back</a>

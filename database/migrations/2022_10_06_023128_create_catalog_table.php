@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->string('supplier');
             $table->string('description');
+			$table->string('type');
         });
     }
 

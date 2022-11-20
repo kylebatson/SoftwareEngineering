@@ -94,6 +94,13 @@
         width: 39rem;
         grid-row-gap: 0.5rem;
     }
+	.middle{
+		display: grid;
+        grid-template-columns: 100%;
+        align-items: center;
+        width: 39rem;
+        grid-row-gap: 0.5rem;
+	}
 
     .last {
         display: inline-flex;
@@ -135,6 +142,18 @@
                         {!!Form::submit('Filter', ['class' => 'bg-[#443abf9a] py-2 px-6 justify-center rounded'])!!} 
                         {!!Form::close()!!} 
                         </div>
+					
+
+					 <div class="middle"> 
+						{!! Form::open (['method'=>'get', 'route'=>'catalog.search']) !!}
+						 <div>
+						 {!! Form::label('searchby', 'Type Of Panel:') !!}
+						 {!!Form::text('type', '',['placeholder'=>'Type Of Panel', 'class' => 'w-1/3 rounded border-none bg-gray-300 text-black']) !!}
+						 
+						 
+						 {!!Form::submit('FilterType', ['class' => 'bg-[#443abf9a] py-2 px-6 justify-center rounded'])!!} 
+						 {!!Form::close()!!}
+						</div>							
 
                     <div class="last">
                         {!! Form::open (['method'=>'get', 'route'=>'catalog.search']) !!}
