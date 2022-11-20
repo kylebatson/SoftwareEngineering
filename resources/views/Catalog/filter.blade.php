@@ -141,7 +141,7 @@
                             <th>Name</th>
                             <th>Category</th>
                             <th>Price</th>
-                            <th></th>
+                            <th>Type</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -151,6 +151,7 @@
                             <td>{{ $item->name}}</td>
                             <td>{{ $item->Category}}</td>
                             <td>{{ $item->price}}</td>
+							<td>{{ $item->type}}</td>
                             <td>
                                 {!! Form::open(['method' =>'get', 'route' => ['catalog.show', $item->id]]) !!}
                                     {!!Form::submit('Details') !!}
