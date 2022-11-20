@@ -23,18 +23,22 @@ class CatalogSeeder extends Seeder
                 'price' => '300.00',
                 'supplier' => 'nameOne',
                 'description' => 'SOMETHING ELSE',
+				'type' => 'commercial',
             ], [
                 'name' => 'Two Panel',
                 'category' => 'solar panel',
                 'price' => '450.00',
                 'supplier' => 'nameTwo',
                 'description' => 'SOMETHING SOMETHING TWO',
+				'type' => 'residential',
+				
             ], [
                 'name' => 'Three',
                 'category' => 'inverter',
                 'price' => '1000.00',
                 'supplier' => 'name_Three',
                 'description' => 'SOMETHING SOMETHING Three',
+				'type' => 'commercial',
             ],
         ]);
         DB::table('users')->insert([
