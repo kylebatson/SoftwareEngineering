@@ -23,23 +23,33 @@
                     </x-nav-link>
                     <x-nav-link :href="url('calculator')" :active="request()->routeIs('calculator')">
                         {{ __('Calculator') }}
-                    </x-nav-link>
+                    
+</x-nav-link>
 
-                        <x-nav-link href="/visit" :active="request()->routeIs('/visit/index')">
-                            {{ __('View Visit Schedule') }}
-                        </x-nav-link>
-                        @if (Auth::user()->role == 'const.admin')
-                        <x-nav-link href="/userlist" :active="request()->routeIs('/userlist/index')">
-                            {{ __('User list') }}
-                        </x-nav-link>
-                        @endif
-                    @if (Auth::user()->role == 'const.userDefault')
-                    <x-nav-link href="/visit/create" :active="request()->routeIs('/visit/create')">
-                            {{ __('Schedule a Visit') }}
-                        </x-nav-link>
-                    @endif
-                </div>
-            </div>
+<x-nav-link href="/visit" :active="request()->routeIs('visit')">
+<x-nav-link href="/visit" :active="request()->routeIs('/visit/index')">
+    {{ __('View Visit Schedule') }}
+</x-nav-link>
+@if (Auth::user()->role == 'const.admin')
+<x-nav-link href="/userlist" :active="request()->routeIs('/userlist/index')">
+    {{ __('User list') }}
+</x-nav-link>
+@endif
+@if (Auth::user()->role == 'const.userDefault')
+<x-nav-link href="/visit/create" :active="request()->routeIs('/visit/create')">
+    {{ __('Schedule a Visit') }}
+</x-nav-link>
+@endif
+
+@if (Auth::user()->role == 'const.admin')
+<x-nav-link href="/queries" :active="request()->routeIs('/queries')">
+    {{ __('Queries') }}
+</x-nav-link>
+@endif
+
+</div>
+</div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
