@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Catalog\CatalogController;
 use App\Http\Controllers\Visit\VisitController;
 use App\Http\Controllers\Queries\QueriesController;
+use App\Http\Controllers\Userlist\UserlistController;
 
 
 /*
@@ -38,6 +39,8 @@ Route::resource('catalog', CatalogController::class);
 Route::resource('visit', VisitController::class);
 
 Route::resource('queries', QueriesController::class);
+
+Route::resource('userlist', UserlistController::class);
 
 Route::view('/calculator', 'calculator');
 
