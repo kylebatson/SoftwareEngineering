@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Catalog\CatalogController;
 use App\Http\Controllers\Visit\VisitController;
+use App\Http\Controllers\Queries\QueriesController;
 use App\Http\Controllers\Userlist\UserlistController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,18 @@ use App\Http\Controllers\Userlist\UserlistController;
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {});
+Route::group(['middleware' => 'auth'], function () {
     Route::post('catalog', 'CatalogController@search');
+});
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+Route::get('/aboutus', function () {
+    return view('about');
+});
 
 Route::get('catalog/filter', 'App\Http\Controllers\Catalog\CatalogController@filter')->name('catalog.filter');
 Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@search')->name('catalog.search');
@@ -26,6 +37,8 @@ Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@sea
 Route::resource('catalog', CatalogController::class);
 
 Route::resource('visit', VisitController::class);
+
+Route::resource('queries', QueriesController::class);
 
 Route::resource('userlist', UserlistController::class);
 
