@@ -98,6 +98,7 @@
     }
 
         </style>
+@if (Auth::user()->role == 'const.admin')
 <div id = "table">
             <table>
                         <colgroup>
@@ -122,9 +123,6 @@
                                 @endif
                             </tr>
                         </thead>
-            @if (Auth::user()->role == 'const.admin')
-
-            @endif
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->firstname }}</td>
@@ -136,6 +134,8 @@
             </tr>
             @endforeach
             </table>
+@endif
+            
 </div>
             </div>
         </div>
