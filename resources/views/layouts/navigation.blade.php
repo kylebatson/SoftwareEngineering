@@ -15,11 +15,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('catalog.index')" :active="request()->routeIs('index')">
-                        {!! Form::open(['method' => 'get', 'route' => ['catalog.index']]) !!}
-                        {!! Form::submit('Catalog') !!}
-                        {!! Form::close() !!}
-
+                    <x-nav-link :href="url('catalog')" :active="request()->routeIs('catalog')">
+                        {{ __('Catalog') }}
                     </x-nav-link>
                     <x-nav-link :href="url('calculator')" :active="request()->routeIs('calculator')">
                         {{ __('Calculator') }}
@@ -45,6 +42,9 @@
                             {{ __('Queries') }}
                         </x-nav-link>
                     @endif
+                    <x-nav-link href="/feed" :active="request()->routeIs('/feed/index')">
+                            {{ __('Feedback') }}
+                        </x-nav-link>
                     
                 </div>
             </div>

@@ -157,7 +157,9 @@
                                     {!!Form::submit('Details') !!}
                                 {!! Form::close() !!}
                             </td>
+                            @if (Auth::user()->role == 'const.admin')
                             <td>
+                                
                                 {!! Form::open(['method' => 'get', 'route'=> ['catalog.edit', $item->id]]) !!}
                                     {!!Form::submit('Edit') !!}
                                 {!!Form::close() !!} 
@@ -167,6 +169,7 @@
                                         {!!Form::submit('Delete') !!}
                                 {!! Form::close() !!}
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                 </table>

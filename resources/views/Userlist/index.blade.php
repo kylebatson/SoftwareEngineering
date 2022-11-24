@@ -52,7 +52,7 @@
     table {
         border: solid 1px snow;
         text-align: center;
-        background-color: #443abf4a;
+        background-color: grey;
         width: 100%;
     }
 
@@ -98,7 +98,7 @@
     }
 
         </style>
-@if (Auth::user()->role == 'const.admin')
+            @if (Auth::user()->role == 'const.admin')
 <div id = "table">
             <table>
                         <colgroup>

@@ -47,9 +47,9 @@
             </div>
             <div class="row">
                 <div class="panels">
-                    <div class="panel-1 panel"><a href = "#">Utility</a></div>
-                    <div class="panel-2 panel"><a href = "#">Commercial</a></div>
-                    <div class="panel-3 panel"><a href = "#">Residential</a></div>
+                    <div class="panel-1 panel"><a href = "{{ url('/utility') }}">Utility</a></div>
+                    <div class="panel-2 panel"><a href = "{{ url('/commercial') }}">Commercial</a></div>
+                    <div class="panel-3 panel"><a href = "{{ url('/residential') }}">Residential</a></div>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
 
             <div class="row">
                 <div class="panels">
-                    <div class="panel-4 panel">Utility</div>
+                    <div class="panel-4 panel">Enterprise</div>
                     <div class="panel-5 panel">Commercial</div>
                 </div>
             </div>

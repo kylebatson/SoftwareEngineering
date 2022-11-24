@@ -5,6 +5,7 @@ use App\Http\Controllers\Catalog\CatalogController;
 use App\Http\Controllers\Visit\VisitController;
 use App\Http\Controllers\Queries\QueriesController;
 use App\Http\Controllers\Userlist\UserlistController;
+use App\Http\Controllers\Feed\FeedController;
 
 
 /*
@@ -22,6 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('catalog', 'CatalogController@search');
 });
 
+Route::resource('feed', FeedController::class);
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -30,6 +33,19 @@ Route::get('/contact', function () {
 Route::get('/aboutus', function () {
     return view('about');
 });
+
+Route::get('/commercial', function() {
+    return view('commercial');
+});
+
+Route::get('/utility', function() {
+    return view('utility');
+});
+
+Route::get('/residential', function() {
+    return view('residential');
+});
+
 
 Route::get('catalog/filter', 'App\Http\Controllers\Catalog\CatalogController@filter')->name('catalog.filter');
 Route::get('catalog/search', 'App\Http\Controllers\Catalog\CatalogController@search')->name('catalog.search');

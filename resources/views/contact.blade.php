@@ -132,7 +132,6 @@
             
             <a href="{{ url('/') }}" class="ml-4 text-lg">Home</a>
             <a href="about.blade.php" class="ml-4 text-lg">About Us</a>
-            <a href="contact.blade.php" class="ml-4 text-lg">Contact Us</a>
         </div>
        <div class="pgtitle"><center><h1> CONTACT US </h1></center></div>
         <div class="relative flex items-top justify-center min-h-screen  dark:bg-gray-900 sm:items-center py-4 sm:pt-0 form-bg">
@@ -141,7 +140,7 @@
         
             {!! Form::open(['method' => 'post', 'route' => 'queries.store', 'class' => 'grid grid-cols-2 w-full gap-2']) !!}
             <div class="flex flex-col col-span-2 gap-2 "><center><h2 style="font-size:25px"> Contact Form</h2></center></div>
-            <div class="flex flex-col col-span-2 gap-2 "><center><p> Fill out the form below and our associates will get ack to you as soon as possible.</p></div>
+            <div class="flex flex-col col-span-2 gap-2 "><center><p> Fill out the form below and our associates will get back to you as soon as possible.</p></div>
             @if(Session::has('success'))
             <div class="flex flex-col col-span-2 gap-2 "><center><p class="lead">{{Session::get('success')}}</p></center></div>
             @endif
@@ -163,7 +162,7 @@
             </div>
             <div class="col-span-2">
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="{{ url('/') }}" class="bg-red-400 hover:bg-red-500 text-white py-2 px-4 rounded text-center hover:text-white">Back</a>
+                    <a href="{{ url('/') }}" class="bg-green-400 hover:bg-green-500 text-white py-2 px-4 rounded text-center hover:text-white">Back</a>
                     {!! Form::submit('Send', ['class' => 'bg-green-400 text-white py-2 px-4 rounded hover:bg-green-500 cursor-pointer']) !!}
                 </div>
             </div> 
